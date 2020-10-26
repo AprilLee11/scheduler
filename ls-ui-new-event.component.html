@@ -1,0 +1,33 @@
+<div class="container">
+<h3>Reservation</h3>
+<form *ngIf="eventForm" [formGroup]="eventForm" (ngSubmit)="saveEvent()">
+        <div>
+                <label for="Instrument">Instrument</label>
+                <select class="form-control" formControlName="Instrument" *ngIf="instrumentSelection.length>0" id="Instrument">
+                        <option *ngFor="let instrument of instrumentSelection" [ngValue]="instrument">
+                                {{instrument.Value}}
+                        </option>
+                </select>
+        </div>
+        <div>
+                <label for="EventOwner">Event Owner</label>
+                <input disabled type="text" class="form-control" formControlName="EventOwner" id="EventOwner">
+        </div>
+        <div>
+                <label for="EventDate">Start</label>
+                <input type="text" class="form-control" formControlName="EventDate" id="EventDate" value="8/15/2020, 7:00:00 AM">
+        </div>
+        <div>
+                <label for="EndDate">End</label>
+                <input type="text" class="form-control" formControlName="EndDate" id="EndDate" value="8/15/2020, 7:30:00 AM">
+        </div>
+        <div>
+                <label for="NeedAssistance">Need Assistance?</label>
+                <input type="text" class="form-control" formControlName="NeedAssistance" id="NeedAssistance" value="False">
+        </div>
+        <div>
+                <button type="submit" class="btn btn-success" (click)="saveEvent()">Submit</button>
+                <button type="submit" class="btn btn-light" (click)="deleteEvent()">Delete</button>
+        </div>
+</form>
+</div>
